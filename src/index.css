@@ -1,0 +1,20 @@
+#interfaz {
+    height: 50vh;
+}
+
+.header {
+    color: gold;
+}
+
+#contenedor-imagen{
+    height: 30vh;
+}
+
+#contenedor-imagen img{
+    width: 100%;
+    height: 100%;
+}
+
+#info-principal {
+    height: 10vh;
+}
