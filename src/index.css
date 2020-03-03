@@ -1,4 +1,4 @@
-#interfaz {
+#interface {
     height: 50vh;
 }
 
@@ -6,16 +6,16 @@
     color: gold;
 }
 
-#contenedor-imagen{
+#img-container{
     height: 30vh;
 }
 
-#contenedor-imagen img{
+#img-container img{
     width: 100%;
     height: 100%;
 }
 
-#info-principal {
+#primary-info {
     height: 10vh;
 }
 .type-icon {
@@ -164,4 +164,15 @@
     background-image: -webkit-linear-gradient(#e898e8, #de6ede);
     background-image: linear-gradient(#e898e8, #de6ede);
     border-color: #d547d5
+}
+  
+.type-curse {
+    background: #68a090;
+    background-image: -webkit-linear-gradient(#68a090, #4e7c6f);
+    background-image: linear-gradient(#68a090, #4e7c6f);
+    border-color: #41685d
+}
+
+.occult {
+    display: none;
 }
