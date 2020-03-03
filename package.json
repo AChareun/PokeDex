@@ -4,7 +4,8 @@
   "description": "Interfaz para visualizar datos de pokeapi",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@types/jquery": "^3.3.33",
+    "cypress": "^4.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
