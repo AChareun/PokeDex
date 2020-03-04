@@ -1,4 +1,4 @@
-export const ctx = document.getElementById('myChart');
+const ctx = document.getElementById('myChart');
 export const $statsChart = new Chart(ctx, {
   type: 'bar',
   data: {
@@ -38,11 +38,8 @@ export const $statsChart = new Chart(ctx, {
 
 export function updateChartData($chart, pokemon) {
   const $pokeChart = $chart;
-  $pokeChart.data.datasets[0].data[0] = pokemon.stats[0].base_stat;
-  $pokeChart.data.datasets[0].data[1] = pokemon.stats[1].base_stat;
-  $pokeChart.data.datasets[0].data[2] = pokemon.stats[2].base_stat;
-  $pokeChart.data.datasets[0].data[3] = pokemon.stats[3].base_stat;
-  $pokeChart.data.datasets[0].data[4] = pokemon.stats[4].base_stat;
-  $pokeChart.data.datasets[0].data[5] = pokemon.stats[5].base_stat;
+  for (let i = 0; i < $pokeChart.data.datasets[0].data.length; i++) {
+    $pokeChart.data.datasets[0].data[i] = pokemon.stats[i].base_stat;
+  }
   $pokeChart.update();
 }
