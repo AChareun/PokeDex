@@ -17,6 +17,8 @@ import {
   setShinySprite,
 } from './pkm-image.js';
 
+import * as chart from './chart.js';
+
 let pokemon;
 
 // eslint-disable-next-line import/prefer-default-export
@@ -28,6 +30,7 @@ export async function updatePokemonInfo(idName) {
   updatePokemonName(pokemon);
   updatePokemonTypes(pokemon);
   updatePokemonAbilities(pokemon);
+  chart.updateChartData(chart.$statsChart, pokemon);
   occultLoading();
 }
 

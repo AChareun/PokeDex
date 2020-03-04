@@ -1,3 +1,5 @@
+import { stringModification } from './text-mod.js';
+
 function emptyElement(elements) {
   elements.forEach((element) => {
     element.remove();
@@ -46,7 +48,7 @@ export function updatePokemonTypes(pokemon) {
 export function updatePokemonName(pokemon) {
   const $name = document.createElement('ul');
   $name.classList.add('my-2', 'h6', 'px-0', 'info-element');
-  $name.textContent = `#${pokemon.id} ${pokemon.name}`;
+  $name.textContent = `#${pokemon.id} ${stringModification(pokemon.name)}`;
   document.querySelector('.primary-info').appendChild($name);
 }
 
@@ -54,7 +56,7 @@ export function updatePokemonAbilities(pokemon) {
   Object.keys(pokemon.abilities).forEach((key) => {
     const $ability = document.createElement('ul');
     $ability.classList.add('card-text', 'h6', 'info-element');
-    $ability.textContent = `-${pokemon.abilities[key].ability.name}`;
+    $ability.textContent = `-${stringModification(pokemon.abilities[key].ability.name)}`;
     document.querySelector('#abilities-poke').appendChild($ability);
   });
 }

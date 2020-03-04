@@ -7,6 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='src/index.css'>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
 </head>
 <body class="bg-danger">
     <header class="container">
@@ -66,15 +67,17 @@
     <div class="container" id="display-info-bot">
         <div class="row">
             <div class="col-sm-3 mx-3 d-flex justify-content-left" id="primary-info">
-                <div class="alert-secondary border border-secondary col-sm-10 d-inline primary-info">
-                    
-                </div>
+                <div class="alert-secondary border border-secondary col-sm-10 d-inline primary-info"></div>
+            </div>
+            <div class="col-sm d-flex justify-content-center" width="400" height="340">
+                <canvas id="myChart" class="bg-dark"></canvas>
             </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
     <script src='src/index.js' type="module"></script>
 </body>
 </html>
