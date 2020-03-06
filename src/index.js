@@ -19,6 +19,8 @@ import {
 
 import * as chart from './chart.js';
 
+import { inputModification } from './text-mod.js';
+
 let pokemon;
 
 // eslint-disable-next-line import/prefer-default-export
@@ -38,7 +40,7 @@ document.querySelector('#random-button').addEventListener(
   'click', () => { updatePokemonInfo(Math.floor(Math.random() * 802)); },
 );
 document.querySelector('#search-button').addEventListener(
-  'click', () => { updatePokemonInfo(document.querySelector('#search-input').value); },
+  'click', () => { updatePokemonInfo(inputModification(document.querySelector('#search-input').value)); },
 );
 document.querySelector('#male').addEventListener(
   'click', () => { setMaleSprite(pokemon); },

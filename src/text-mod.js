@@ -17,3 +17,9 @@ export function stringModification(string) {
   $string = noKebabCase($string);
   return $string;
 }
+
+export function inputModification(string) {
+  let $string = string.trim();
+  $string = $string.toLowerCase();
+  return $string;
+}
