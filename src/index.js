@@ -42,6 +42,24 @@ document.querySelector('#random-button').addEventListener(
 document.querySelector('#search-button').addEventListener(
   'click', () => { updatePokemonInfo(inputModification(document.querySelector('#search-input').value)); },
 );
+
+document.querySelector('#btn-backw').addEventListener(
+  'click', () => { updatePokemonInfo(pokemon.id - 1); },
+);
+
+document.querySelector('#btn-forw').addEventListener(
+  'click', () => { updatePokemonInfo(pokemon.id + 1); },
+);
+
+document.addEventListener('keydown', (event) => {
+  if (event.keyCode === 32) {
+    document.querySelector('#search-input').focus();
+  }
+  if (event.keyCode === 13) {
+    document.querySelector('#search-button').click();
+  }
+});
+
 document.querySelector('#male').addEventListener(
   'click', () => { setMaleSprite(pokemon); },
 );
