@@ -17,9 +17,9 @@ import {
   setShinySprite,
 } from './pkm-image.js';
 
-import * as chart from './chart.js';
-
 import { inputModification } from './text-mod.js';
+
+import updateStatsBars from './bars.js';
 
 let pokemon;
 
@@ -32,7 +32,7 @@ export async function updatePokemonInfo(idName) {
   updatePokemonName(pokemon);
   updatePokemonTypes(pokemon);
   updatePokemonAbilities(pokemon);
-  chart.updateChartData(chart.$statsChart, pokemon);
+  updateStatsBars(pokemon);
   occultLoading();
 }
 
