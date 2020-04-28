@@ -1,10 +1,14 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jest/globals": true,
+        "cypress/globals": true
     },
     "extends": [
-        "airbnb-base"
+        "airbnb-base",
+        "plugin:cypress/recommended",
+        "plugin:jest/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -14,6 +18,17 @@
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+    "plugins": [
+        "cypress",
+        "jest"
+      ],
     "rules": {
+        "import/extensions": [
+            "error",
+            {
+              "js": "always",
+              "json": "sometimes"
+            }
+          ]
     }
 }
