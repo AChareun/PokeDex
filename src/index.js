@@ -23,8 +23,7 @@ import updateStatsBars from './bars.js';
 
 let pokemon;
 
-// eslint-disable-next-line import/prefer-default-export
-export async function updatePokemonInfo(idName) {
+async function updatePokemonInfo(idName) {
   setLoadingState();
   pokemon = await callForPokeInfo(idName);
   updatePokemonImg(pokemon);
@@ -74,3 +73,5 @@ document.querySelector('#shiny').addEventListener(
 );
 
 updatePokemonInfo();
+
+export default updatePokemonInfo;

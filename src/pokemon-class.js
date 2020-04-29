@@ -1,5 +1,7 @@
 class Pokemon {
-  constructor({ name, id, sprites, height, weight, types, abilities, stats }) {
+  constructor({
+    name, id, sprites, height, weight, types, abilities, stats,
+  }) {
     this.name = name;
     this.id = id;
     this.sprites = sprites;

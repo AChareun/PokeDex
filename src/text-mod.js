@@ -10,7 +10,6 @@ function noKebabCase(string) {
   return $string;
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export function stringModification(string) {
   let $string = string;
   $string = startUpperCase($string);
