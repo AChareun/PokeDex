@@ -3,6 +3,7 @@
 
 import bodyFixture from './fixtures/body-fixture.js';
 import pokemon from './fixtures/pokemon-fixture.js';
+import pokemon2 from './fixtures/greninja-fixture.js';
 import updateStatsBars from '../bars.js';
 
 describe('tests the propper update of bars', () => {
@@ -17,5 +18,13 @@ describe('tests the propper update of bars', () => {
       expect($bar.style.width).toEqual(`${pokemon.stats[i].base_stat}%`);
       expect($bar.textContent).toEqual(`${pokemon.stats[i].stat.name} ${pokemon.stats[i].base_stat}`);
     });
+  });
+
+  test('stat higher than 100 should set width to 100', () => {
+    updateStatsBars(pokemon2);
+
+    const $BARS = document.querySelectorAll('#bar div');
+
+    expect($BARS[0].style.width).toEqual('100%');
   });
 });
