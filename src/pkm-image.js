@@ -1,58 +1,63 @@
 import { updatePokemonImg } from './ui.js';
 
-let gender = 'male';
-let color = 'normal';
-
 export function setMaleSprite(pokemon) {
+  const $imgContainer = document.querySelector('#img-container');
   const $img = document.querySelector('img');
-  if (color === 'shiny') {
+
+  if ($imgContainer.dataset.color === 'shiny') {
     $img.remove();
     updatePokemonImg(pokemon, 'front_shiny');
-    gender = 'male';
+    $imgContainer.dataset.gender = 'male';
     return;
   }
   $img.remove();
   updatePokemonImg(pokemon, 'front_default');
-  gender = 'male';
+  $imgContainer.dataset.gender = 'male';
 }
 
 export function setFemaleSprite(pokemon) {
+  const $imgContainer = document.querySelector('#img-container');
   const $img = document.querySelector('img');
+
   if (pokemon.sprites.front_female === null) {
     setMaleSprite(pokemon);
     return;
   }
-  if (color === 'shiny') {
+  if ($imgContainer.dataset.color === 'shiny') {
     $img.remove();
     updatePokemonImg(pokemon, 'front_shiny_female');
-    gender = 'female';
+    $imgContainer.dataset.gender = 'female';
     return;
   }
   $img.remove();
   updatePokemonImg(pokemon, 'front_female');
-  gender = 'female';
+  $imgContainer.dataset.gender = 'female';
 }
 
 export function setNormalSprite(pokemon) {
+  const $imgContainer = document.querySelector('#img-container');
   const $img = document.querySelector('img');
-  if (gender === 'female') {
-    color = 'normal';
+
+  if ($imgContainer.dataset.gender === 'female') {
+    $imgContainer.dataset.color = 'normal';
     setFemaleSprite(pokemon);
     return;
   }
   $img.remove();
   updatePokemonImg(pokemon, 'front_default');
-  color = 'normal';
+  $imgContainer.dataset.color = 'normal';
 }
 
 export function setShinySprite(pokemon) {
+  const $imgContainer = document.querySelector('#img-container');
   const $img = document.querySelector('img');
-  if (gender === 'female') {
-    color = 'shiny';
+
+  if ($imgContainer.dataset.gender === 'female') {
+    $imgContainer.dataset.color = 'shiny';
     setFemaleSprite(pokemon);
     return;
   }
   $img.remove();
   updatePokemonImg(pokemon, 'front_shiny');
-  color = 'shiny';
+  $imgContainer.dataset.color = 'shiny';
 }
