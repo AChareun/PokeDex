@@ -5,6 +5,8 @@
 
 describe('Pokedex', () => {
   let fetchPolyfill;
+  const BASE_URL = 'https://pokeapi.co/api/v2/pokemon/';
+  const LOCAL_URL = 'http://127.0.0.1:8080';
 
   before(() => {
     const polyfillUrl = 'https://unpkg.com/unfetch/dist/unfetch.umd.js';
@@ -15,10 +17,10 @@ describe('Pokedex', () => {
       });
 
     cy.server();
-    cy.route('https://pokeapi.co/api/v2/pokemon/1', 'fixture:bulbasaur')
+    cy.route(`${BASE_URL}1`, 'fixture:bulbasaur')
       .as('callForBulbaInfo');
 
-    cy.visit('http://127.0.0.1:8080', {
+    cy.visit(LOCAL_URL, {
       onBeforeLoad(contentWindow) {
         // eslint-disable-next-line no-param-reassign
         delete contentWindow.fetch;
@@ -31,7 +33,9 @@ describe('Pokedex', () => {
 });
 
 it('loads the default pokemon', () => {
-  cy.visit('http://127.0.0.1:8080');
+  const LOCAL_URL = 'http://127.0.0.1:8080';
+
+  cy.visit(LOCAL_URL);
 
   expect(cy.get('img')).not.to.be.null;
 
@@ -65,16 +69,18 @@ it('loads the default pokemon', () => {
 });
 
 it('uses navigation buttons to switch pokemons', () => {
+  const BASE_URL = 'https://pokeapi.co/api/v2/pokemon/';
+  const LOCAL_URL = 'http://127.0.0.1:8080';
   const POKEMON = 'Bulbasaur';
   const POKEMON2 = 'Ivysaur';
 
   cy.server();
-  cy.route('https://pokeapi.co/api/v2/pokemon/1', 'fixture:bulbasaur')
+  cy.route(`${BASE_URL}1`, 'fixture:bulbasaur')
     .as('callForBulbaInfo');
-  cy.route('https://pokeapi.co/api/v2/pokemon/2', 'fixture:ivysaur')
+  cy.route(`${BASE_URL}2`, 'fixture:ivysaur')
     .as('callForIvyInfo');
 
-  cy.visit('http://127.0.0.1:8080');
+  cy.visit(LOCAL_URL);
   cy.get('.primary-info').should('contain', POKEMON);
 
   cy.get('#btn-forw').click();
@@ -85,13 +91,16 @@ it('uses navigation buttons to switch pokemons', () => {
 });
 
 it('uses the sprite buttons to change the image displayed', () => {
+  const BASE_URL = 'https://pokeapi.co/api/v2/pokemon/';
+  const LOCAL_URL = 'http://127.0.0.1:8080';
+
   cy.server();
-  cy.route('https://pokeapi.co/api/v2/pokemon/1', 'fixture:bulbasaur')
+  cy.route(`${BASE_URL}1`, 'fixture:bulbasaur')
     .as('callForBulbaInfo');
-  cy.route('https://pokeapi.co/api/v2/pokemon/322', 'fixture:numel')
+  cy.route(`${BASE_URL}322`, 'fixture:numel')
     .as('callForNumelInfo');
 
-  cy.visit('http://127.0.0.1:8080');
+  cy.visit(LOCAL_URL);
   cy.get('#search-input').type('322');
   cy.get('#search-button').click();
 
@@ -125,13 +134,16 @@ it('uses the sprite buttons to change the image displayed', () => {
 });
 
 it('uses the key shortcuts', () => {
+  const BASE_URL = 'https://pokeapi.co/api/v2/pokemon/';
+  const LOCAL_URL = 'http://127.0.0.1:8080';
+
   cy.server();
-  cy.route('https://pokeapi.co/api/v2/pokemon/1', 'fixture:bulbasaur')
+  cy.route(`${BASE_URL}1`, 'fixture:bulbasaur')
     .as('callForBulbaInfo');
-  cy.route('https://pokeapi.co/api/v2/pokemon/658', 'fixture:greninja')
+  cy.route(`${BASE_URL}658`, 'fixture:greninja')
     .as('callForGreninjaInfo');
 
-  cy.visit('http://127.0.0.1:8080');
+  cy.visit(LOCAL_URL);
 
   cy.get('body').type(' ');
   cy.get('#search-input')

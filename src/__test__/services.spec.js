@@ -8,6 +8,8 @@ beforeEach(() => {
 });
 
 describe('tests that the call for info works in a propper way', () => {
+  const BASE_URL = 'https://pokeapi.co/api/v2/pokemon/';
+
   test('callForPokeInfo should be called with the correct url', () => {
     global.fetch.mockImplementationOnce(() => new Promise((resolve) => {
       const jsonPromise = new Promise((r) => {
@@ -22,7 +24,7 @@ describe('tests that the call for info works in a propper way', () => {
       .toHaveBeenCalledTimes(1);
 
     expect(global.fetch)
-      .toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/bulbasaur/');
+      .toHaveBeenCalledWith(`${BASE_URL}bulbasaur/`);
   });
 
   test('callForPokeInfo should be called with "1" as default', () => {
@@ -39,6 +41,6 @@ describe('tests that the call for info works in a propper way', () => {
       .toHaveBeenCalledTimes(1);
 
     expect(global.fetch)
-      .toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/1/');
+      .toHaveBeenCalledWith(`${BASE_URL}1/`);
   });
 });
