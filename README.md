@@ -5,6 +5,11 @@
   At the moment, mega-evolutions are not reachable via the random button (due to IDs they have on the API). Although you can search them using '-' instead of spaces, it's something to fix.
  
   [Demo](https://achareun.github.io/PokeDex/)
+  
+ # Testing
+ 
+ - Unit tests were done using Jest
+ - Integration tests were done using Cypress
  
  # To Install
  
@@ -26,6 +31,12 @@
   
   
   [Demo](https://achareun.github.io/PokeDex/)
+  
+ 
+ # Testing
+ 
+ - Se realizaron tests unitarios usando Jest.
+ - La prueba de integración fue realizada con Cypress.
  
  # Instalación
  
